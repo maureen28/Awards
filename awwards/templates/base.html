@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   {% if title %}
-  <title>Instagram - {{title}}</title>
+  <title>Awwwards - {{title}}</title>
   {% else %}
-    <title> Instagram</title>
+    <title> Awwwards</title>
   {% endif %}
 
   {% block styles %}
@@ -34,11 +34,16 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
     {% endblock %}
-    <footer><br>
- <!-- Copyright -->
-  <div class="footer text-center py-3"><br>© 2020 Copyright:Nimo<br><br>
-  </div>
-  <!-- Copyright -->
+    <footer>
+    <div class="row">
+    <div class="col-md-4">
+    <p>The awards for design, creativity and innovation on the internet</p>
+      <p><b>About us</b> Blog</p>
+      <p><b>Follow us</b> Twitter Facebook Youtube Linkedin Instagram</p>
+</div>
+ <div class="col-md-4"></div>
+</div>
+
 </footer>
 </body>
 </html>
