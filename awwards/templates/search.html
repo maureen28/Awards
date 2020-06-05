@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container ">
+    <div class="row"><br>
+        {% if results %}
+            {% for result in results %}
+            <div class="row" style="overflow:hidden;-webkit-border-radius:50px; -moz-border-radius:50px; border-radius:100px; width:200px;height:200px;">
+                {% if result.profile_pic %}
+                <img src="{{result.profile_pic.cdn_url}}"  alt="image">
+                {% else %}
+                <img src="https://unsplash.it/1200/768.jpg?image=1008" alt="avatar">
+                {% endif %}
+            </div>
+    {% comment %} <button onclick="unhide()" class="btn btn-primary">View Profile</button>
+                    <div class="exp">
+                        <p class="and">
+                        {% if profiles %}
+                        <img src="{{profile.my_image.cdn_url}}" class="card-img-top" alt="Image">
+                        <h5> {{profile.caption}}</h5>
+                        {% endif %}
+                        </div>
+                      </p>
+                    </div> {% endcomment %}
+
+                <ul style="list-style: none">   <br><br> <br><br>
+                  <a class="btn btn-primary" href="">View Profile</a></li>
+               </li>
+
+                </ul>
+            {% endfor %}
+        {% else %}
+            <div class="col-md-12 text-center">
+                <h4>Not found </h4>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% comment %} <script>
+function unhide() {
+    var hid = document.getElementsByClassName("exp");
+    // Emulates jQuery $(element).is(':hidden');
+    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+        hid[0].style.visibility = "visible";
+    }
+}
+</script> {% endcomment %}
+{% endblock %}
