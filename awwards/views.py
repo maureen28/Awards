@@ -27,3 +27,18 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
+
+@login_required(login_url='/accounts/login/')
+def new_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.Author = current_user
+            project.save()
+        return redirect('index')
+
+    else:
+        form = NewProjectForm()
+    return render(request, 'new-project.html', {"form": form})
