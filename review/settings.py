@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'pyuploadcare.dj',
     'rest_framework',
     'crispy_forms',
-    'djangoratings',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +137,9 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Star ratings
+STAR_RATINGS_ANONYMOUS = True
+STAR_RATINGS_RERATE = False
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
