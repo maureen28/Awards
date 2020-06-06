@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_countries',
     'pyuploadcare.dj',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

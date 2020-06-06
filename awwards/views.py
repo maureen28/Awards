@@ -4,9 +4,8 @@ import datetime as dt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-
 from .models import Project, Profile
-
+from .forms import NewProjectForm
 
 # Create your views here.
 def home(request):
@@ -35,10 +34,10 @@ def new_project(request):
         form = NewProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit=False)
-            project.Author = current_user
+            project.author = current_user
             project.save()
-        return redirect('index')
+        return redirect('home')
 
     else:
         form = NewProjectForm()
-    return render(request, 'new-project.html', {"form": form})
+    return render(request, 'projects/new-project.html', {"form": form})
