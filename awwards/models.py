@@ -36,7 +36,7 @@ class Project(models.Model):
     country = CountryField(blank_label='(select country)', default='Kenya')
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     profile = models.ForeignKey(Profile)
- 
+
     def __str__(self):
         return self.title
 
