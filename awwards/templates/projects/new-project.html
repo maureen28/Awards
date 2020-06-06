@@ -29,7 +29,7 @@
       <!-- Empty div -->
       <div class="col-md-3"></div>
       <div class="col-md-5 pt-2 ">
-            <form  action="{%url 'newproject'%}" method="post" enctype="multipart/form-data">
+            <form  action="{%url 'new'%}" method="post" enctype="multipart/form-data">
               {%csrf_token%}
               {% bootstrap_form form%}
               <input type="submit" class="btn btn-success btn-lg" value="SUBMIT">
