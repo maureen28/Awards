@@ -5,13 +5,54 @@
 <div class="box-content">
  {% for project_item in projects %}
 <div style="background:url('{{ project_item.my_image}}'); height: 50vh; background-size: cover; background-position: center;">
-<div class="container-main">
-<p>Site of the day {{ project_item.time_created}}</p>
-<h2 class="text-center">{{ project_item.title}}</h2>
-<p class='head-p'>BY {{ project_item.author}} FROM {{ project_item.country}}</p>
+<h5>Site of the day {{ project_item.time_created}}</h5>
+<h1 class="text-center">{{ project_item.title}}</h1>
+<h3 class='head-p'>BY {{ project_item.author}} FROM {{ project_item.country}}</h3>
 <button id='btn-view'><a href="{{ project_item.link}}"class="button" target="_blank" >View site</a></button>
 {%endfor%}
 </div>
 </div>
+<br><br>
+<h4>Sites of the day</h4>
+<br>
+        {% for project_item in projects %}
+            <div class="col-lg-4">
+                <div class="card-deck">
+                    <div class="card mb-2 mt-2">
+                      <!-- Card image -->
+                    <div class="view overlay zoom">
+                        {% if project_item.my_image %}
+                        <a href="/project/{{project_item.id}}">
+                        <img class="card-img-top" src="{{project_item.my_image.url}}" alt="{{ project_item.name }}" height="300px">
+                        </a>
+                        {% else %}
+                        <a href="/project/{{project_item.id}}">
+                        <img  class="card-img-top" src="https://unsplash.it/1200/768.jpg?image=584" alt="Ireland">
+                        </a>
+                        {% endif %}
+                      </div>
+                      <div class="card-body pr-2 pl-2 pr-2 mr-2">
+                        <h5 class="card-title ml-4">{{ project_item.title }}</h5>
+                        <div class="row ml-2">
+                          <div class="col-lg-6 dark-text"> <small> <span class="mr-1"> From {{project_item.country.name}}</span> <img src="{{project_item.country.flag}}" alt=" {{project_item.country.name}} flag">  </small> </div>
+                          <div class="col-lg-6 dark-text d-flex justify-content-end"> <small> {{project_item.time_created|date:"d /m/Y"}} </small> </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted ml-2"><img src="{{ project_item.author.profile.profile_pic.url }}" alt="" class="rounded-circle img-fluid mr-1" style="width: 30px;">
+                        BY {{project_item.author|upper}} </small>
+                      </div>
+                    </div>
+                  </div>
+                <!-- end of card deck  -->
+
+            </div>
+      {% endfor %}
+    </div>
+
+<br>
+<br>
+<p><b> Nominees </b>  We need your vote</p>
 </div>
+
 {% endblock %}

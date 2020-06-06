@@ -1,5 +1,5 @@
 body {
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 #btn-view{
@@ -12,7 +12,10 @@ body {
 }
 .head-p{
     color:  #49c5b6;
-    text-transform: capitalize;
     text-align: center;
     font-weight: bold;
+}
+.copy{
+    background-color: gainsboro;
+    text-align: center;
 }
