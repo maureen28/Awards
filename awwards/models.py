@@ -6,7 +6,7 @@ from pyuploadcare.dj.models import ImageField
 from django_countries.fields import CountryField
 from star_ratings.models import Rating
 from django.db.models import ObjectDoesNotExist
-
+from django.http import Http404
 
 # Create your models here.
 
@@ -54,14 +54,26 @@ class Project(models.Model):
     def get_projects(cls):
         projects = cls.objects.all()
         return projects
-    
+
+    # If doesnt exist
+     @classmethod
+    def get_project(request, id):
+        try:
+            project = Projects.objects.get(pk = id)
+
+        except ObjectDoesNotExist:
+            raise Http404()
+
+        return project
+
+    #Search project
     @classmethod
     def search_projects(cls, search_term):
         projects = cls.objects.filter(project_title__icontains=search_term)
         return projects
-    
-    
+
+
     @classmethod
-    def get_by_author(cls, Author):
-        projects = cls.objects.filter(Author=Author)
+    def get_by_author(cls, author):
+        projects = cls.objects.filter(author=author)
         return projects
