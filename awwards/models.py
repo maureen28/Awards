@@ -4,7 +4,6 @@ from django.utils import timezone
 from datetime import datetime
 from pyuploadcare.dj.models import ImageField
 from django_countries.fields import CountryField
-from star_ratings.models import Rating
 from django.db.models import ObjectDoesNotExist
 from django.http import Http404
 
@@ -56,7 +55,7 @@ class Project(models.Model):
         return projects
 
     # If doesnt exist
-     @classmethod
+    @classmethod
     def get_project(request, id):
         try:
             project = Projects.objects.get(pk = id)

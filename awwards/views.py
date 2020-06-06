@@ -4,7 +4,6 @@ import datetime as dt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from friendship.exceptions import AlreadyExistsError
 
 from .models import Project, Profile
 

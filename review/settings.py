@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+UPLOADCARE = {
+    'pub_key':'cdcde9d88fea3c0d203e',
+    'secret':'8b3cceb6c375319683f6',
+}
 
 # Application definition
 
@@ -40,8 +44,8 @@ INSTALLED_APPS = [
     # Own
     'awwards.apps.AwwardsConfig',
     'bootstrap4',
+    'django_countries',
     'pyuploadcare.dj',
-    'friendship',
 ]
 
 MIDDLEWARE = [
