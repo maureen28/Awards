@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from datetime import datetime
 from pyuploadcare.dj.models import ImageField
 from django_countries.fields import CountryField
 from star_ratings.models import Rating
@@ -23,3 +25,15 @@ class Profile(models.Model):
      #delete profile
     def delete_profile(self):
         self.delete()
+
+# Project model
+
+class Project(models.Model):
+    title = models.CharField(max_length=120)
+    time_created = models.DateTimeField(default=datetime.now)
+    description = models.TextField()
+    my_image = ImageField()
+    link = models.URLField()
+    country = CountryField(blank_label='(select country)', default='Kenya')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    profile = models.ForeignKey(Profile)
