@@ -37,55 +37,29 @@ class ProjectTestClass(TestCase):
 
     # Testing Save Method
     def save_method_test(self):
-        self.new_project.save_Project()
+        self.new_project.save_project()
         projects = Project.objects.all()
         self.assertTrue(len(projects) > 0)
-
-    # Teardown
-    def tearDown(self):
-        Profile.objects.all().delete()
-        Project.objects.all().delete()
-
+ 
     # Testing Delete Method
     def delete_method_test(self):
-        self.new_project.save_image()
-        filtered_img = Image.objects.filter(name='Lancelin')
-        Image.delete_image(filtered_img)
-        final_images = Image.objects.all()
-        self.assertTrue(len(final_images) == 0)
+        self.new_project.delete_project()
+        projects = Project.search_project('test')
+        self.assertTrue(len(projects) < 1)
 
-    # Testing Update Method
-    def update_method_test(self):
-        self.new_project.save_image()
-        filtered_img = Image.update_image('Lancelin','Dunes')
-        fetched = Image.objects.get(name='Dunes')
-        self.assertEqual(fetched.name,'Dunes')
+    # get method
+    def get_projects_test(self):
+        self.new_project.save()
+        projects = Project.all_project()
+        self.assertTrue(len(projects) > 0)
 
-    # Testing get image Method
-    def get_image_by_id_test_method(self):
-        self.new_project.save_image()
-        fetched_image = Image.get_image_by_id(1)
-        self.assertEqual(fetched_image.id,1)
-
-    # Testing search image Method
-    def search_by_Project_test_method(self):
-        self.new_project.save_image()
-        fetch_specific = Project.objects.get(title='Food')
-        self.assertTrue(fetch_specific.title=='Food')
+    def test_search_post(self):
+        self.new_project.save()
+        projects = Project.search_project('test')
+        self.assertTrue(len(projects) > 0)
 
 
-    # Testing filter Profile Method
-    def filter_by_Profile_test_method(self):
-        self.new_project.save_image()
-        fetch_specific = Profile.objects.get(country='Tanzania')
-        self.assertTrue(fetch_specific.country=='Tanzania')
-
-    #  test all images
-    def display_all_images_test_method(self):
-        self.new_project.save_image()
-        final_images = Image.retrieve_all()
-        self.assertEqual(final_images.name,'Lancelin')
-
+# Rating
 class RatingTest(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -108,3 +82,9 @@ class RatingTest(TestCase):
         self.rating.save()
         rating = Rating.get_ratings(new_project_id=id)
         self.assertTrue(len(rating) == 1)
+
+    # Teardown
+    def tearDown(self):
+        Profile.objects.all().delete()
+        Project.objects.all().delete()
+        Rating.objects.all().delete()
