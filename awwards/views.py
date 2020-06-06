@@ -37,7 +37,6 @@ def new_project(request):
             project.author = current_user
             project.save()
         return redirect('home')
-
     else:
         form = NewProjectForm()
     return render(request, 'projects/new-project.html', {"form": form})

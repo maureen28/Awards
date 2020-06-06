@@ -7,6 +7,6 @@ urlpatterns = [
     url(r'about/', about, name='about'),
     url(r'newproject/', new_project, name='new-project'),
     url(r'search/', search_results, name='search_results'),
-    # url(r'', home, name='home'),
+    url(r'', home, name='home'),
 
 ]
