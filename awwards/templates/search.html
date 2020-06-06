@@ -6,13 +6,13 @@
     {% if projects %}
     <div class="jumbotron">
         <div class="text-center">
-          <h6>We found {{ projects|length }} projects for "{{message}}"</h6>
+          <h6>We found {{ projects|length }} projects for {{message}}</h6>
         </div>
       </div>
     {% else %}
     <div class="jumbotron">
         <div class="text-center">
-          <h2 >We found 0 projects for the term "{{message}}"</h2>
+          <h2 >We found 0 projects for the term {{message}}</h2>
         </div>
       </div>
     {% endif %}

@@ -47,7 +47,7 @@ def get_project(request, id):
         project = Projects.objects.get(pk = id)
     except ObjectDoesNotExist:
         raise Http404()
-    return render(request, "projects.html", {"project":project})
+    return render(request, "projects/project.html", {"project":project})
 
 @login_required(login_url='/accounts/login/')
 def profile_display(request):
