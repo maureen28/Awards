@@ -5,14 +5,14 @@
 
     {% if projects %}
     <div class="jumbotron">
-        <div class="">
-          <h2 class="display-6 text-center font-weight-bold">Found {{ projects|length }} projects for searched term {{message}}</h2>
+        <div class="text-center">
+          <h6>We found {{ projects|length }} projects for "{{message}}"</h6>
         </div>
       </div>
     {% else %}
     <div class="jumbotron">
-        <div class="">
-          <h2 class="display-5 text-center font-weight-bold">Found 0 projects for the searched term {{message}}</h2>
+        <div class="text-center">
+          <h2 >We found 0 projects for the term "{{message}}"</h2>
         </div>
       </div>
     {% endif %}
@@ -21,11 +21,11 @@
 
   <div class="container-fluid">
       <div class="mb-2 pb-2 pl-4 pr-2 ml-4 mr-1">
-          <h4 class="display-6 font-weight-bold"> Sites of the day </h4>
+          <h4> {{ projects|length }} Websites </h4>
       </div>
-        <div class="row pl-2 pr-2 ml-1 mr-1">
+        <div class="row">
             {% for project_item in projects %}
-                <div class="col-lg-3">
+                <div class="col-md-4">
                     <div class="card-deck">
                         <div class="card">
                           <!-- Card image -->

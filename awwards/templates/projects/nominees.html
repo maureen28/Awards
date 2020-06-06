@@ -1,22 +1,8 @@
-{%extends 'base.html'%}
-
-{% block content %}
 <div class="container-fluid">
-<div class="box-content">
- {% for project_item in projects %}
-<div style="background:url('{{ project_item.my_image}}'); height: 50vh; background-size: cover; background-position: center;">
-<h5>Site of the day {{ project_item.time_created}}</h5>
-<h1 class="text-center">{{ project_item.title}}</h1>
-<h3 class='head-p'>BY {{ project_item.author}} FROM {{ project_item.country}}</h3>
-<button id='btn-view'><a href="{{ project_item.link}}"class="button" target="_blank" >View site</a></button>
-{%endfor%}
-</div>
-</div>
-<br><br>
-<h4>Sites of the day </h4>
-<br>
+      <p><b> Nominees</b> We need your vote <p>
+
 {% for project_item in projects %}
-    <div class="col-md-3">
+    <div class="col-lg-4">
         <div class="card-deck">
             <div class="card mb-2 mt-2">
                 <!-- Card image -->
@@ -27,7 +13,7 @@
                 </a>
                 {% else %}
                 <a href="/project/{{project_item.id}}">
-                <img  class="card-img-top" src="https://unsplash.it/1200/768.jpg?image=584" alt="Ireland">
+                <img  class="card-img-top" src="https://unsplash.it/1200/768.jpg?image=76" alt="Ireland">
                 </a>
                 {% endif %}
                 </div>
@@ -48,8 +34,4 @@
 
     </div>
 {% endfor %}
-</div><br><br>
-  {% include "projects/nominees.html" %}
-</div>
-
-{% endblock %}
+ </div>
