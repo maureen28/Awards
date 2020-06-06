@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'pyuploadcare.dj',
     'rest_framework',
     'crispy_forms',
+    'djangoratings',
 ]
 
 MIDDLEWARE = [

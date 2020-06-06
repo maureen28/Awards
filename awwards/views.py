@@ -42,13 +42,6 @@ def new_project(request):
         form = NewProjectForm()
     return render(request, 'projects/new-project.html', {"form": form})
 
-def get_project(request, id):
-    try:
-        project = Projects.objects.get(pk = id)
-    except ObjectDoesNotExist:
-        raise Http404()
-    return render(request, "projects/project.html", {"project":project})
-
 @login_required(login_url='/accounts/login/')
 def profile_display(request):
     current_user = request.user

@@ -1,23 +1,25 @@
-{%extends 'layout.html'%}
+ {%extends 'base.html'%}
 
 {% load bootstrap4%}
-{% load ratings %}
+
 
 {% block content %}
 <div class="container">
   <div class="row mt-4"></div>
+
   <div class="row">
+
     <div class="col-lg-12">
+
       <div class="card card-cascade wider reverse">
 
-        <!-- Card image -->
         <div class="view view-cascade overlay">
-          {% if project.project_image %}
-          <img class="card-img-top" src="{{project.my_image}}" alt="Image"
+          {% if project.my_image %}
+          <img class="card-img-top" src="{{project.my_image}}" alt="Project"
            style="max-height: 500px;">
           {% else %}
-          <img class="card-img-top" src="https://source.unsplash.com/1600x900/?fun,vacation"
-            alt="Image">
+          <img class="card-img-top" src="https://unsplash.it/1200/768.jpg?image=10"
+            alt="Avatar">
           {% endif %}
           <a href="#!">
             <div class="mask rgba-white-slight">
@@ -29,15 +31,11 @@
           </a>
         </div>
 
-        <!-- Card content -->
         <div class="card-body card-body-cascade text-center">
 
-          <!-- Title -->
           <h2 class="font-weight-bold"><a>{{ project.title }}</a></h2>
-          <!-- Data -->
-          <h4 class="">{{ project.description }}</h4>
 
-          <!-- Social shares -->
+          <h4 class="">{{ project.description }}</h4>
           <div>
             <a href="{{project.link}}" target="_blank" title="Visit site">
               <button type="button" class="btn btn-default font-weight-bold px-3">Visit website</button></a>
@@ -47,7 +45,6 @@
           </div>
           {%ratings project %}
 
-
           <div class="row">
             <div class="col-lg-6 dark-text"> <small> <span class="mr-1"> From {{project.country.name}}</span>
                 <img src="{{project.country.flag}}" alt=" {{project.country.name}} flag"> </small> </div>
@@ -56,28 +53,17 @@
           </div>
         </div>
       </div>
-
       <div class="card mt-5 pb-2 mb-2">
-
-        <!-- Card footer -->
         <div class="card-footer bg-white">
           <h5 class="pt-2">CREDITS</h5>
-
           <hr>
-
-          <small class="font-weight-bold ml-2"><img src="{{ project.author.profile.profile_pic.}}" alt=""
+          <small class="font-weight-bold ml-2"><img src="{{ project.author.profile.photo.url }}" alt=""
               class="rounded-circle img-fluid mr-1" style="width: 50px;">
             BY {{project.author|upper}} <span class="ml-1 mr-1"> From {{project.country.name}}</span>
             <img src="{{project.country.flag}}" alt=" {{project.country.name}} flag"></small>
         </div>
-
       </div>
-
     </div>
-    <!-- Grid column -->
-
   </div>
-  <!-- Grid row -->
-
 </div>
 {% endblock %}
