@@ -1,5 +1,17 @@
 {%extends 'base.html'%}
 
 {% block content %}
-
+<div class="container-fluid">
+<div class="box-content">
+ {% for project_item in projects %}
+<div style="background:url('{{ project_item.my_image}}'); height: 50vh; background-size: cover; background-position: center;">
+<div class="container-main">
+<p>Site of the day {{ project_item.time_created}}</p>
+<h2 class="text-center">{{ project_item.title}}</h2>
+<p class='head-p'>BY {{ project_item.author}} FROM {{ project_item.country}}</p>
+<button id='btn-view'><a href="{{ project_item.link}}"class="button" target="_blank" >View site</a></button>
+{%endfor%}
+</div>
+</div>
+</div>
 {% endblock %}
