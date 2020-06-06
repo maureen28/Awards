@@ -76,3 +76,4 @@ class Project(models.Model):
     def get_by_author(cls, author):
         projects = cls.objects.filter(author=author)
         return projects
+
