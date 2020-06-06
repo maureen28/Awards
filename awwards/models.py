@@ -37,3 +37,31 @@ class Project(models.Model):
     country = CountryField(blank_label='(select country)', default='Kenya')
     author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     profile = models.ForeignKey(Profile)
+
+    def __str__(self):
+        return self.title
+
+    #Save project
+    def save_project(self):
+        self.save()
+
+    #Delete project
+    def delete_project(self):
+        self.delete()
+
+    #Get project
+    @classmethod
+    def get_projects(cls):
+        projects = cls.objects.all()
+        return projects
+    
+    @classmethod
+    def search_projects(cls, search_term):
+        projects = cls.objects.filter(project_title__icontains=search_term)
+        return projects
+    
+    
+    @classmethod
+    def get_by_author(cls, Author):
+        projects = cls.objects.filter(Author=Author)
+        return projects

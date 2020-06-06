@@ -29,8 +29,9 @@ class ProjectTestClass(TestCase):
       # Set up method
     @classmethod
     def setUpTestData(cls):
+        cls.user = User.objects.create_user('Happy', 'secret')
         cls.new_project = Project.objects.create(title="new_project",my_image='https://unsplash.it/1200/768.jpg?image=76',
-                              description='Portfolio', country='ghana',link='http://photogall.com', profile=cls.profile1)
+                              description='Portfolio', country='ghana',link='http://photogall.com', author=cls.user, profile=cls.profile1)
 
     # Testing  instance
     def test_instance(self):
@@ -41,7 +42,7 @@ class ProjectTestClass(TestCase):
         self.new_project.save_project()
         projects = Project.objects.all()
         self.assertTrue(len(projects) > 0)
- 
+
     # Testing Delete Method
     def delete_method_test(self):
         self.new_project.delete_project()
@@ -64,12 +65,10 @@ class ProjectTestClass(TestCase):
 class RatingTest(TestCase):
     @classmethod
     def setUpTestData(cls):
+        cls.user = User.objects.create_user('Happy', 'secret')
         cls.new_project = Project.objects.create(title="new_project",my_image='https://unsplash.it/1200/768.jpg?image=76',
-                              description='Portfolio', country='ghana',url='http://photogall.com', profile=cls.profile1)
-        cls.profile1 = Profile.objects.create(profile_pic='https://unsplash.it/1200/768.jpg?image=1033',
-                                     bio='Like it',
-                                     user=cls.new_user)
-        cls.rating = Rating.objects.create(id=1, design=6, usability=7, content=9, profile=cls.profile1, new_project=cls.new_project)
+                              description='Portfolio', country='ghana',link='http://photogall.com', author=cls.user, profile=cls.profile1)
+        cls.rating = Rating.objects.create(id=1, design=6, usability=7, content=9, author=cls.user, project=cls.new_project)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.rating, Rating))
