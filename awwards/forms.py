@@ -11,3 +11,8 @@ class NewProjectForm(forms.ModelForm):
         widgets = {
           'description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
         }
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
