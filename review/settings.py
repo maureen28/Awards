@@ -138,8 +138,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Star ratings
-STAR_RATINGS_ANONYMOUS = True
-STAR_RATINGS_RERATE = False
+LOGIN_REDIRECT_URL ='/'
+STAR_RATINGS_RANGE = 10
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -28,11 +28,10 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}')
-            return redirect('/')
+            return redirect('/login')
     else:
         form = RegisterForm()
     return render(request, 'registration/registration_form.html', {'form':form})
-
 
 def about(request):
     return render(request, 'about.html')
@@ -52,6 +51,15 @@ def new_project(request):
     else:
         form = NewProjectForm()
     return render(request, 'projects/new-project.html', {"form": form})
+
+def get_project(request, id):
+
+    try:
+        project = Projects.objects.get(pk = id)
+
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request, "projects/projects.html", {"project":project})
 
 
 # search
@@ -85,3 +93,15 @@ def profile_display(request):
         form = ProfileUpdateForm()
     return render(request, 'registration/profile.html', {"form":form, "projects":projects})
 
+
+# class ProjectList(APIView):
+#     def get(self, request, format=None):
+#         all_project = Projects.objects.all()
+#         serializers = ProjectSerializer(all_project, many=True)
+#         return Response(serializers.data)
+
+# class ProfileList(APIView):
+#     def get(self, request, format=None):
+#         all_profile = Profile.objects.all()
+#         serializers = ProfileSerializer(all_profile, many=True)
+#         return Response(serializers.data)

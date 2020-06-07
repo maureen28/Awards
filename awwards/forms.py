@@ -7,8 +7,8 @@ from crispy_forms.helper import FormHelper
 
 
 class RegisterForm(RegistrationForm):
-    first_name = forms.CharField(max_length=255)
-    last_name = forms.CharField(max_length=255)
+    name = forms.CharField(max_length=255)
+
     class Meta:
         model = User
         fields = ('username', 'name', 'email', 'password1', 'password2',)
