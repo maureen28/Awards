@@ -6,7 +6,7 @@
     {% if projects %}
     <div class="jumbotron">
         <div class="text-center">
-          <h6>We found {{ projects|length }} website for the term {{message}}</h6>
+          <h2>We found {{ projects|length }} website for the term {{message}}</h2>
         </div>
       </div>
     {% else %}
@@ -48,10 +48,15 @@
                             </div>
                           </div>
                           <div class="card-footer">
-                            <small class="text-muted ml-2"><img src="{{ project_item.author.profile.profile_pic}}" alt="" class="rounded-circle img-fluid " style="width: 30px;">
-                            BY {{project_item.author.first_name|upper}} </small>
+                            <small class="text-muted ml-2">
+                              {% if project.profile_pic %}
+                          <img src="{{project.profile_pic}}"  alt="image" class="rounded-circle img-fluid " style="width: 30px;">
+                              {% else %}
+                              <img src="https://unsplash.it/1200/768.jpg?image=1033" alt="avatar" class="rounded-circle img-fluid" style="width: 30px;">
+                              {% endif %}
+                            BY {{project_item.author|upper}} </small>
                           </div>
-                        </div> 
+                        </div>
                       </div>
                 </div>
           {% endfor %}

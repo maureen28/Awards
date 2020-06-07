@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, render_to_response, HttpResponseRedirect
 from django.http import HttpResponse, Http404
 import datetime as dt
-from django.conf import settings
-from django.templatetags.static import static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
@@ -12,7 +10,7 @@ from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import ProfileSerializer, ProjectSerializer
-
+from django.contrib.auth.views import LogoutView
 
 # Create your views here.
 def home(request):
@@ -52,14 +50,13 @@ def new_project(request):
         form = NewProjectForm()
     return render(request, 'projects/new-project.html', {"form": form})
 
-def get_project(request, id):
-
+@login_required(login_url='/accounts/login')
+def project(request, project_id):
     try:
-        project = Projects.objects.get(pk = id)
-
-    except ObjectDoesNotExist:
+        project = Project.objects.get(id=project_id)
+    except Projects.DoesNotExist:
         raise Http404()
-    return render(request, "projects/projects.html", {"project":project})
+    return render(request, "projects/projects.html", locals())
 
 
 # search
