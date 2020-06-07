@@ -24,13 +24,13 @@ def new_project(request):
         form = NewProjectForm(request.POST, request.FILES)
         if form.is_valid():
             project = form.save(commit=False)
-            project.Author = current_user
+            project.author = current_user
             project.save()
-        return redirect('index')
+        return redirect('home')
 
     else:
         form = NewProjectForm()
-    return render(request, 'new-project.html', {"form": form})
+    return render(request, 'projects/new-project.html', {"form": form})
 
 
 # search
