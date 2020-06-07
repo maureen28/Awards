@@ -1,8 +1,7 @@
 <!--Navbar-->
-<nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
-    <!-- Navbar brand -->
-    <a class="navbar-brand font-weight-bold title" href="{% url 'index' %}"style="font-size: 30px; font-weight:bold">AWWARDS</a>
+    <a class="navbar-brand font-weight-bold title" href="{% url 'home' %}"style="font-size: 30px; font-weight:bold">awwwards.</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -15,9 +14,8 @@
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
           <li class="text-white nav-item">
-            <a class="nav-link" href="{% url 'index' %}" style="font-size: 30px; font-weight:bold">Home</a>
+            <a class="nav-link" href="{% url 'about' %}" style="font-size: 30px; font-weight:bold">About Us</a>
           </li>
-          
         </li>
         {% if user.is_authenticated %}
         {% endif %}

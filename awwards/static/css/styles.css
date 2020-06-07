@@ -25,3 +25,7 @@ body {
 .abt{
     font-weight: normal;
 }
+.jumbotron{
+    color: black;
+    background-color: #49c5b6 ;
+}

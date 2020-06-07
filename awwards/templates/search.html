@@ -6,7 +6,7 @@
     {% if projects %}
     <div class="jumbotron">
         <div class="text-center">
-          <h6>We found {{ projects|length }} projects for {{message}}</h6>
+          <h6>We found {{ projects|length }} website for the term {{message}}</h6>
         </div>
       </div>
     {% else %}
@@ -32,7 +32,7 @@
                         <div class="view overlay zoom">
                             {% if project_item.my_image %}
                             <a href="/project/{{project_item.id}}">
-                            <img class="card-img-top" src="{{project_item.my_image.url}}" alt="{{ project_item.project_name }}" height="300px">
+                            <img class="card-img-top" src="{{project_item.my_image}}" alt="{{ project_item.project_name }}" height="300px">
                             </a>
                             {% else %}
                             <a href="/project/{{project_item.id}}">
@@ -48,7 +48,7 @@
                             </div>
                           </div>
                           <div class="card-footer">
-                            <small class="text-muted ml-2"><img src="{{ project_item.author.profile.profile_pic.url }}" alt="" class="rounded-circle img-fluid " style="width: 30px;">
+                            <small class="text-muted ml-2"><img src="{{ project_item.author.profile.profile_pic}}" alt="" class="rounded-circle img-fluid " style="width: 30px;">
                             BY {{project_item.author.first_name|upper}} </small>
                           </div>
                         </div> 

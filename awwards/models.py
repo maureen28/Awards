@@ -68,7 +68,7 @@ class Project(models.Model):
     #Search project
     @classmethod
     def search_projects(cls, search_term):
-        projects = cls.objects.filter(project_title__icontains=search_term)
+        projects = cls.objects.filter(title__icontains=search_term)
         return projects
 
 
