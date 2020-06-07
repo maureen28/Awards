@@ -1,17 +1,38 @@
 from django.shortcuts import render, redirect, render_to_response, HttpResponseRedirect
 from django.http import HttpResponse, Http404
 import datetime as dt
+from django.conf import settings
+from django.templatetags.static import static
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Project, Profile
-from .forms import NewProjectForm, ProfileUpdateForm
+from .forms import NewProjectForm, ProfileUpdateForm, RegistrationForm
+from django.contrib import messages
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer, ProjectSerializer
+
 
 # Create your views here.
 def home(request):
     date = dt.date.today()
     projects = Project.get_projects()
     return render(request, 'index.html', {"date": date, "projects":projects})
+
+# Registration
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}')
+            return redirect('/')
+    else:
+        form = RegisterForm()
+    return render(request, 'registration/registration_form.html', {'form':form})
+
 
 def about(request):
     return render(request, 'about.html')
