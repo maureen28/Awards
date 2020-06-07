@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'awwards.apps.AwwardsConfig',
     'bootstrap4',
     'django_countries',
-    'pyuploadcare.dj',
+    # 'pyuploadcare.dj',
     'rest_framework',
     'crispy_forms',
     'star_ratings',

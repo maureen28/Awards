@@ -11,12 +11,6 @@ body {
     border-radius: 40%;
 }
 
-.head-p {
-    color: #49c5b6;
-    text-align: center;
-    font-weight: bold;
-}
-
 .copy {
     background-color: gainsboro;
     text-align: center;
@@ -28,4 +22,8 @@ body {
 .jumbotron{
     color: black;
     background-color: #49c5b6 ;
+}
+.hap{
+    font-weight: bold;
+    font-size: large;
 }

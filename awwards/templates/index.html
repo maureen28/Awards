@@ -3,13 +3,13 @@
 {% block content %}
 <div class="container-fluid">
 <div class="box-content">
- {% for project_item in projects %}
-<div style="background:url('{{ project_item.my_image}}'); height: 50vh; background-size: cover; background-position: center;">
-<h5>Site of the day {{ project_item.time_created}}</h5>
-<h1 class="text-center">{{ project_item.title}}</h1>
-<h3 class='head-p'>BY {{ project_item.author}} FROM {{ project_item.country}}</h3>
-<button id='btn-view'><a href="{{ project_item.link}}"class="button" target="_blank" >View site</a></button>
-{%endfor%}
+<div class="hap">
+<div style="background:url('https://unsplash.it/1200/768.jpg?image=1068'); height: 50vh; background-size: cover; background-position: center;">
+<h3 class='text-left'>Site of the day 08/06/2020</h3>
+<h1 class="text-center">LOVER</h1>
+<h2 class="text-center">BY NIMO FROM NZ</h2>
+<button id='btn-view'><a href='https://picsum.photos/images#3' class="button" target="_blank" >View site</a></button>
+</div>
 </div>
 </div>
 <br><br>

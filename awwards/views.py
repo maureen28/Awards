@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from .models import Project, Profile
-from .forms import NewProjectForm, ProfileUpdateForm, RegistrationForm
+from .forms import NewProjectForm, ProfileUpdateForm
 from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -17,19 +17,6 @@ def home(request):
     date = dt.date.today()
     projects = Project.get_projects()
     return render(request, 'index.html', {"date": date, "projects":projects})
-
-# Registration
-def register(request):
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}')
-            return redirect('/login')
-    else:
-        form = RegisterForm()
-    return render(request, 'registration/registration_form.html', {'form':form})
 
 def about(request):
     return render(request, 'about.html')
@@ -50,11 +37,12 @@ def new_project(request):
         form = NewProjectForm()
     return render(request, 'projects/new-project.html', {"form": form})
 
+
 @login_required(login_url='/accounts/login')
 def project(request, project_id):
     try:
         project = Project.objects.get(id=project_id)
-    except Projects.DoesNotExist:
+    except Project.DoesNotExist:
         raise Http404()
     return render(request, "projects/projects.html", locals())
 

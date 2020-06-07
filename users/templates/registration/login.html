@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {% csrf_token %}
+                {{form | crispy}}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
