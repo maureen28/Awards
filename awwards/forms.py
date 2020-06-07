@@ -7,7 +7,7 @@ from crispy_forms.helper import FormHelper
 class NewProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = [ 'time_created']
+        exclude = [ 'time_created', 'user']
         widgets = {
           'description': forms.Textarea(attrs={'rows':4, 'cols':10,}),
         }

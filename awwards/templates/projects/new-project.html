@@ -6,48 +6,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>New Project - Awwwards.</title>
+  <title>New Project - awwwards</title>
 
 {% block styles %}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <!-- Material Design Bootstrap -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
-  {% endblock %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+{% endblock %}
 </head>
 
 <body>
-    {% include "navbar.html" %}
-<div class="container"><br><br>
-       <h2 class="text-center font-weight-bold"> SUBMIT YOUR SITE </h2>
-       <p class="text-center">Every month, our unique users who specialize in web design, development and the <br>
-       latest web technologies, visit our site looking for inspiration, trends and talent on the web.</p>
-    </div>
-<br>
-{{form.media}}
+      {% include "navbar.html" %}
+
   <div class="row">
-      <!-- Empty div -->
-      <div class="col-md-3"></div>
-      <div class="col-md-5 pt-2 ">
-            <form  action="{%url 'new'%}" method="post" enctype="multipart/form-data">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-5 pt-2 ">
+            <form  action="{%url 'new-project'%}" method="post" enctype="multipart/form-data">
               {%csrf_token%}
               {% bootstrap_form form%}
-              <input type="submit" class="btn btn-success btn-lg" value="SUBMIT">
+              <input type="submit" class="btn btn-success btn-lg font-weight-bold" value="SUBMIT SITE">
             </form>
       </div>
-
-      <div class="col-md-3"></div>
+      <div class="col-lg-3"></div>
   </div>
-</div>
-
-   {% block scripts %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  {% bootstrap_javascript %}
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
-  {% endblock %}
-
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+{% endblock %}
 </body>
-
 </html>
