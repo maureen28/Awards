@@ -2,7 +2,8 @@
 
 <div class="container-fluid">
       <p><b> Nominees</b> We need your vote <p>
-
+<div class="container-fluid">
+<div class="row">
 {% for project_item in projects %}
     <div class="col-lg-4">
         <div class="card-deck">
@@ -20,7 +21,8 @@
                 {% endif %}
                 </div>
                 <div class="card-body pr-2 pl-2 pr-2 mr-2">
-                <h5 class="card-title ml-4">{{ project_item.title }}</h5>
+                <h5 class="card-title ml-4"> <a href='{{ project_item.title }}' style="color:black;" target="_blank" >{{ project_item.title }}</a>
+</h5>
                 <div class="row ml-2">
                     <div class="col-lg-6 dark-text"> <small> <span class="mr-1"> From {{project_item.country.name}}</span> <img src="{{project_item.country.flag}}" alt=" {{project_item.country.name}} flag">  </small> </div>
                     <div class="col-lg-6 dark-text d-flex justify-content-end"> <small> {{project_item.time_created|date:"d /m/Y"}} </small> </div>
@@ -39,4 +41,6 @@
 
     </div>
 {% endfor %}
+</div>
+</div>
  </div>

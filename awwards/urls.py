@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'', home, name='home'),
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
     # url(r'^api/projects/$', views.ProjectList.as_view()),
-    # url(r'^api/profiles/$', views.ProfileList.as_view()),
+    # # url(r'^api/profiles/$', views.ProfileList.as_view()),
 ]

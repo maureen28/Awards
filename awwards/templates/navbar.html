@@ -12,7 +12,6 @@
           <li class="text-white nav-item">
             <a class="nav-link" href="{% url 'about' %}" style="font-size: 30px; font-weight:bold">About Us</a>
           </li>
-        </li>
         </ul>
       {% if user.is_authenticated %}
           <form class="form-inline" action="{% url 'search_results' %}">
@@ -46,8 +45,8 @@
               </ul>
               {% else %}
               <li class="list-unstyled">
-                  <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/login" style="font-size: 15px;">Login</a>
-                  <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/register"style="font-size: 15px;">Register</a>
+                  {% comment %} <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/login" style="font-size: 15px;">Login</a>
+                  <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/register"style="font-size: 15px;">Register</a> {% endcomment %}
               </li>
 
               {% endif %}

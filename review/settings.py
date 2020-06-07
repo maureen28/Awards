@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'star_ratings',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +139,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Star ratings
-LOGIN_REDIRECT_URL ='/'
+# LOGIN_REDIRECT_URL ='/'
 STAR_RATINGS_RANGE = 10
 
 MEDIA_URL = '/media/'

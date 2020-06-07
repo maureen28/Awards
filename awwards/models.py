@@ -9,22 +9,6 @@ from django.http import Http404
 
 # Create your models here.
 
-class Profile(models.Model):
-    profile_pic = ImageField()
-    bio = models.CharField(max_length=100)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.bio
-
-    #Save profile
-    def profile_save(self):
-        self.save()
-
-     #delete profile
-    def delete_profile(self):
-        self.delete()
-
 # Project model
 
 class Project(models.Model):

@@ -1,18 +1,14 @@
-{% extends 'projects/base.html' %}
-{% load bootstrap4 %}
-
+{% extends 'base.html' %}
 {% block content %}
     <div class="container">
         <div class="row">
-        <div class="col-md-3"></div>
-            <div class="col-md-5">
+            <div class="col">
                 <form action="" method='POST'>
                     {% csrf_token %}
                     {% bootstrap_form form %}
-                    <button type='submit' class='btn btn-success'>Register</button>
+                    <button type='submit' class='btn btn-success'>update profile</button>
                 </form>
             </div>
-            <div class="col-md-3"></div>
         </div>
     </div>
 {% endblock content %}

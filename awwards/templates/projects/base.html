@@ -1,0 +1,62 @@
+{% load bootstrap4 %}
+{% load static %}
+<! DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  {% if title %}
+  <title>Awwwards - {{title}}</title>
+  {% else %}
+    <title> Awwwards</title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
+  {% endblock %}
+
+</head>
+<body>
+<header>
+    <div class="container-fluid"><br>
+    <div class="row">
+    <div class="col-md-4">
+    <p style='text-decoration:underline;'>Kenya  </p>
+    </div>
+     <div class="col-md-4">
+    <p >The awards of design , creatvity and innovation on the internet </p>
+    </div>
+     <div class="col-md-4">
+     <p style='margin-left:500px;'>
+     <span class="instagram"><a href="https://www.instagram.com/maureen.murimi/" title="Instagram"
+                  target="_self"><i class="fa fa-instagram" style="font-size:20px;color:black;"></i></a></span>
+          <span class="twitter"><a href="https://twitter.com/MaureenNimo3" title="twitter"
+                  target="_blank"><i class="fa fa-twitter" style="font-size:20px;color:black;"></i></a></span>
+          <span class="facebook"><a href="https://www.facebook.com/maureen.murimi.33" title="facebook"
+                  target="_self"><i class="fa fa-facebook" style="font-size:20px;color:black;"></i></a></span>
+      </p>
+      </div>
+  </div>
+    </div>
+    </div>
+</header><hr>
+    {% include "navbar.html" %}
+    <br><hr>
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+     {% bootstrap_javascript %}
+    {% endblock %}
+
+</body>
+</html>

@@ -4,12 +4,12 @@ import datetime as dt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Project, Profile
-from .forms import NewProjectForm, ProfileUpdateForm
+from .models import Project
+from .forms import NewProjectForm
 from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProfileSerializer, ProjectSerializer
+from .serializer import *
 from django.contrib.auth.views import LogoutView
 
 # Create your views here.
@@ -58,25 +58,6 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
-
-@login_required(login_url='/accounts/login/')
-def profile_display(request):
-    current_user = request.user
-    author = current_user
-    projects = Project.get_by_author(author)
-    try:
-        profile = request.user.profile
-    except Profile.DoesNotExist:
-        profile = Profile(user=request.user)
-    if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-        if form.is_valid():
-            profile = form.save(commit=False)
-            profile.save()
-        return redirect('profile')
-    else:
-        form = ProfileUpdateForm()
-    return render(request, 'registration/profile.html', {"form":form, "projects":projects})
 
 
 # class ProjectList(APIView):
