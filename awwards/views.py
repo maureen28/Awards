@@ -13,6 +13,7 @@ from .serializer import *
 from django.contrib.auth.views import LogoutView
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
+from users.models import Profile
 
 # Create your views here.
 def home(request):
@@ -68,8 +69,8 @@ class ProjectList(APIView):
         serializers = ProjectSerializer(all_project, many=True)
         return Response(serializers.data)
     
-# class ProfileList(APIView):
-#     def get(self, request, format=None):
-#         all_profile = Profile.objects.all()
-#         serializers = ProfileSerializer(all_profile, many=True)
-#         return Response(serializers.data)
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profile = Profile.objects.all()
+        serializers = ProfileSerializer(all_profile, many=True)
+        return Response(serializers.data)
