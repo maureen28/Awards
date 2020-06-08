@@ -4,12 +4,20 @@
     <div class="container">
         <div class="row">
             <div class="col">
+            {% if user.profile_image %}
+                 <img src="{{user_details.profile_image.url}}" class="rounded-circle" style=" width:150px;height:150px;" alt="Profile dp"/>
+                {% else %}
+                <img src="https://unsplash.it/1200/768.jpg?image=106"  class="rounded-circle" style=" width:150px;height:150px;" alt="avatar">
+                {% endif %}
                 <h1>{{user.username}}</h1>
-                <img src="{{user.profile.profile_image.url}}" alt="">
                 <p>{{user_details.profile_bio}}</p>
-                <img src="{{user_details.profile_image.url}}" alt="">
-                <a href="{% url 'update_profile' %}" class='btn btn-info'></a>
+                <a href="{% url 'update_profile' %}" class='btn btn-outline-info'>UPDATE PROFILE</a>
             </div>
-        </div>
+        </div>hr
+              <h2 class='text-center' >You have not uploaded any sites</h2>
+            <p class='text-center' ><a href= "{% url 'new-project' %}">Post your first website</a></p>
+      
     </div>
 {% endblock content %}
+
+
