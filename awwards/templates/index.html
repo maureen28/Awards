@@ -4,8 +4,8 @@
 <div class="container-fluid">
 <div class="box-content">
 <div class="hap">
-<div style="background:url('https://unsplash.it/1200/768.jpg?image=1068'); height: 50vh; background-size: cover; background-position: center;">
-<h3 class='text-left'>Site of the day 08/06/2020</h3>
+<div style="background:url('https://unsplash.it/1200/765.jpg?image=1065'); height: 50vh; background-size: cover; background-position: center;">
+<h3 class='text-left'>Site of the day 05/06/2020</h3>
 <h1 class="text-center">LOVER</h1>
 <h2 class="text-center">BY NIMO FROM NZ</h2>
 <button id='btn-view'><a href='https://picsum.photos/images#3' class="button" target="_blank" >View site</a></button>
@@ -29,7 +29,7 @@
                 </a>
                 {% else %}
                 <a href="/project/{{project_item.id}}">
-                <img  class="card-img-top" src="https://unsplash.it/1200/768.jpg?image=584" alt="Ireland">
+                <img  class="card-img-top" src="https://unsplash.it/1200/765.jpg?image=554" alt="Ireland">
                 </a>
                 {% endif %}
                 </div>
@@ -41,10 +41,10 @@
                 </div>
                 </div>
                 <div class="card-footer">
-                  {% if project.profile_pic %}
-                    <img src="{{project.profile_pic}}"  alt="image" class="rounded-circle img-fluid " style="width: 30px;">
+                  {% if project.profile_image %}
+                    <img src="{{project.user.profile.profile_image}}"  alt="image" class="rounded-circle img-fluid " style="width: 30px;">
                         {% else %}
-                        <img src="https://unsplash.it/1200/768.jpg?image=1033" alt="avatar" class="rounded-circle img-fluid" style="width: 30px;">
+                        <img src="https://unsplash.it/1200/765.jpg?image=106" alt="avatar" class="rounded-circle img-fluid" style="width:50px;height:50px;">
                 {% endif %}
                <small class='text-muted'> BY {{project_item.author|upper}} </small>
                 </div>
