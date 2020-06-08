@@ -42,7 +42,7 @@ This application comes with two API Endpoints for Profiles and Projects.
 <img src="/explore .jpg" alt=" Explore page" width="800"/>
 </ul>
 
-### Live link :
+### Live link : https://aawards.herokuapp.com/
 
 
 ## BDD

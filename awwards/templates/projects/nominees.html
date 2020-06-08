@@ -12,7 +12,7 @@
             <div class="view overlay zoom">
                 {% if project_item.my_image %}
                 <a href="/project/{{project_item.id}}">
-                <img class="card-img-top" src="{{project_item.my_image}}" alt="{{ project_item.name }}" height="300px">
+                <img class="card-img-top" src="{{project_item.my_image}}" alt="{{ project_item.name }}" class="image"  height="300px">
                 </a>
                 {% else %}
                 <a href="/project/{{project_item.id}}">
@@ -37,10 +37,20 @@
                 </div>
             </div>
             </div>
-        <!-- end of card deck  -->
+        <!-- Rating hover  -->
+             <div class="middle">
+                    <div class="text">
+                    <a href="{{project_item.link}}"><i class="fa fa-lg fa-eye" >Visit Site</i></a>
+                    <div class="mt-2 pt-2">
+                    <h6>Total votes</h6>
+                    </div>
+                        {%ratings project_item%}
+              </div>
+  </div>
 
     </div>
 {% endfor %}
+
 </div>
 </div>
  </div>

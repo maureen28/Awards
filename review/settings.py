@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'awwards.apps.AwwardsConfig',
     'bootstrap4',
     'django_countries',
+    'rest_framework.authtoken',
     # 'pyuploadcare.dj',
     'rest_framework',
     'crispy_forms',
@@ -95,7 +96,11 @@ DATABASES = {
     }
 }
 
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 

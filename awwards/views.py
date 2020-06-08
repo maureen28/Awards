@@ -11,6 +11,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import *
 from django.contrib.auth.views import LogoutView
+from rest_framework import status
+from .permissions import IsAdminOrReadOnly
 
 # Create your views here.
 def home(request):
@@ -60,12 +62,12 @@ def search_results(request):
         return render(request, 'search.html', {"message": message})
 
 
-# class ProjectList(APIView):
-#     def get(self, request, format=None):
-#         all_project = Projects.objects.all()
-#         serializers = ProjectSerializer(all_project, many=True)
-#         return Response(serializers.data)
-
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_project = Project.objects.all()
+        serializers = ProjectSerializer(all_project, many=True)
+        return Response(serializers.data)
+    
 # class ProfileList(APIView):
 #     def get(self, request, format=None):
 #         all_profile = Profile.objects.all()
