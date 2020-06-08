@@ -62,11 +62,11 @@ def search_results(request):
         return render(request, 'search.html', {"message": message})
 
 
-# class ProjectList(APIView):
-#     def get(self, request, format=None):
-#         all_project = Project.objects.all()
-#         serializers = ProjectSerializer(all_project, many=True)
-#         return Response(serializers.data)
+class ProjectList(APIView):
+    def get(self, request, format=None):
+        all_project = Project.objects.all()
+        serializers = ProjectSerializer(all_project, many=True)
+        return Response(serializers.data)
     
 # class ProfileList(APIView):
 #     def get(self, request, format=None):
