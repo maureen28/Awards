@@ -30,7 +30,7 @@ This application comes with two API Endpoints for Profiles and Projects.
 
 <ul>
 <li>Projects API Endpoint - </li>
-<li>Profiles API Endpoint - </li>
+
 </ul>
 
 ### Brief Webpage Overview.
