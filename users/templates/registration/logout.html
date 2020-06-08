@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+        <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h3>Your logged out of your account!</h3>
+                <h5>Do you wish to log in again?</h5>
+                <a href="{% url 'login' %}" class='btn btn-outline-info'>LOGIN</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+{% endblock content %}

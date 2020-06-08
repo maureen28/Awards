@@ -1,4 +1,4 @@
-<nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
     <a class="navbar-brand font-weight-bold title" href="{% url 'home' %}"style="font-size: 30px; font-weight:bold">awwwards.</a>
 
@@ -22,35 +22,25 @@
           {% endif %}
           <div class="col-sm-6 col-lg-6 d-flex justify-content-end">
               {% if user.is_authenticated %}
-              <ul><li class="nav-item">
-                  <a class="nav-link btn btn-block text-white success-color-dark" href="{%url 'new-project'%}">SUBMIT YOUR SITE </a>
-                </li></ul>
               <ul>
-                <li class="dropdown list-unstyled text-white">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user" style="color: black;"></i> My Account </a>
-                  <ul class="dropdown-menu dropdown-default" role="menu">
-                    <li>
-                        {% comment %} <a class="dropdown-item" href="{%url 'profile'%}">Profile</a> {% endcomment %}
-                      </li>
-                    <li>
-                      <a class="dropdown-item" href="/accounts/password/change">Change Password</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="/logout">Logout</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              {% else %}
-              <li class="list-unstyled">
-                  {% comment %} <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/login" style="font-size: 15px;">Login</a>
-                  <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/register"style="font-size: 15px;">Register</a> {% endcomment %}
+              <li class="nav-item">
+                  <a class="nav-link btn btn-block text-white success-color-dark" href="{% url 'new-project' %}">SUBMIT YOUR SITE </a>
               </li>
-
-              {% endif %}
-        </div>
+              </ul>
+              <ul>
+                <li class='nav-item'>
+                <a href="{% url 'logout' %}" class='nav-link btn btn-block text-white success-color-dark'>LOGOUT</a>
+              </li>
+              {% else %}
+              <li class='nav-item'>
+                <a href="{% url 'login' %}" class='nav-link btn btn-block text-white success-color-dark'>LOGIN</a>
+              </li>
+              <li class='nav-item'>
+                <a href="{% url "register" %}" class='nav-link btn btn-block text-white success-color-dark'>REGISTER TODAY</a>
+              </li>
+              </ul>
+               {% endif %}
+              <ul>
 
     </div>
   </nav>

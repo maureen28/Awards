@@ -25,7 +25,7 @@ def about(request):
     return render(request, 'about.html')
 
 # New project
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/login/')
 def new_project(request):
     current_user = request.user
     if request.method == 'POST':
@@ -41,7 +41,7 @@ def new_project(request):
     return render(request, 'projects/new-project.html', {"form": form})
 
 
-@login_required(login_url='/accounts/login')
+@login_required(login_url='/login')
 def project(request, project_id):
     try:
         project = Project.objects.get(id=project_id)
@@ -51,7 +51,7 @@ def project(request, project_id):
 
 
 # search
-@login_required(login_url='/accounts/login/')
+@login_required(login_url='/login/')
 def search_results(request):
     if 'keyword' in request.GET and request.GET["keyword"]:
         search_term = request.GET.get("keyword")

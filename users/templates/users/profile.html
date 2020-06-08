@@ -6,7 +6,9 @@
             <div class="col">
                 <h1>{{user.username}}</h1>
                 <img src="{{user.profile.profile_image.url}}" alt="">
-                <p>{{user.profile.profile_bio}}</p>
+                <p>{{user_details.profile_bio}}</p>
+                <img src="{{user_details.profile_image.url}}" alt="">
+                <a href="{% url 'update_profile' %}" class='btn btn-info'></a>
             </div>
         </div>
     </div>
