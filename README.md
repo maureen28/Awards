@@ -36,10 +36,12 @@ This application comes with two API Endpoints for Profiles and Projects.
 ### Brief Webpage Overview.
 
 <ul>
-<li>Below is the landing page once the web browser is loaded</li>
+<li>Below is the landing page once the web page loads</li>
 <img src="/landing.jpg" alt=" Home page" width="1000"/>
-<li>Below is the explore page </li>
-<img src="/explore .jpg" alt=" Explore page" width="800"/>
+<li>Below is the Nominee page where you will see the votes each nominee has</li>
+<img src="/nominee.jpg" alt=" Nominee page" width="800"/>
+<li>Below is the project page where you can vote for each site</li>
+<img src="/Single.jpg" alt=" Single page" width="800"/>
 </ul>
 
 ### Live link : https://aawards.herokuapp.com/
